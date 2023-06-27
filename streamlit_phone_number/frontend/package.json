@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dp-react-phone-number-input": "^3.2.25",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-phone-number-input": "^3.2.23",
     "streamlit-component-lib": "^1.4.0"
   },
   "devDependencies": {

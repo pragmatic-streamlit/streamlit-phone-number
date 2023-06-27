@@ -1,7 +1,7 @@
 import React from "react";
 import { withStreamlitConnection, StreamlitComponentBase, ComponentProps, Streamlit } from 'streamlit-component-lib';
-import PhoneInput, { Country, parsePhoneNumber } from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import PhoneInput, { Country, parsePhoneNumber } from 'dp-react-phone-number-input';
+import 'dp-react-phone-number-input/style.css';
 
 export enum StreamlitEventType {
   PHONE_NUMBER_CHANGE = "PHONE_NUMBER_CHANGE",
