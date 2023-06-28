@@ -19,7 +19,9 @@ export const noticeStreamlit = (event: StreamlitEvent) =>
   Streamlit.setComponentValue(event)
 
 interface IProps {
-  default_country?: Country; 
+  default_country?: Country;
+  label: string;
+  placeholder: string;
 }
 
 interface IState {
@@ -37,6 +39,14 @@ class PhoneNumber extends StreamlitComponentBase<IState> {
       value: "",
       country: this.args.default_country || "CN",
     }
+  }
+
+  componentDidMount(): void {
+      Streamlit.setFrameHeight()
+  }
+  
+  componentDidUpdate(): void {
+      Streamlit.setFrameHeight()
   }
   
   handleChange = (value: string) => {
@@ -60,14 +70,17 @@ class PhoneNumber extends StreamlitComponentBase<IState> {
 
   public render(): React.ReactNode {
     return (
-      <PhoneInput
-        placeholder="Enter phone number"
-        value={this.state.value}
-        onChange={this.handleChange}
-        onCountryChange={this.handleCountryChange}
-	      defaultCountry={this.state.country}
-        onBlur={this.handleOnBlue}
-      />
+      <div>
+        <p className={"PhoneInputLabel"}>{this.args.label}</p>
+        <PhoneInput
+          placeholder={this.args.placeholder || "Enter phone number"}
+          value={this.state.value}
+          onChange={this.handleChange}
+          onCountryChange={this.handleCountryChange}
+          defaultCountry={this.state.country}
+          onBlur={this.handleOnBlue}
+        />
+      </div>
     )
   }
 }

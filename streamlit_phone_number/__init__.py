@@ -17,14 +17,14 @@ else:
     _component_func = components.declare_component("streamlit-phone-number", path=build_dir) # noqa
 
 
-def st_phone_number(key = None, default_country: str = "CN"): # noqa
-    return _component_func(key=key, default_country=default_country) # noqa
+def st_phone_number(label, placeholder="Enter phone number", default_country: str = "CN", key = None): # noqa
+    return _component_func(label=label, placeholder=placeholder, key=key, default_country=default_country) # noqa
 
 
 if _DEVELOP_MODE:
     import streamlit as st
-    event = st_phone_number("test")
-    st.write(event)
-    
-    event = st_phone_number("test2", default_country="US")
+
+    event = st_phone_number("Phone", placeholder="ss", default_country="CN")
+    st.text_input('Password here', type='password')
+
     st.write(event)
